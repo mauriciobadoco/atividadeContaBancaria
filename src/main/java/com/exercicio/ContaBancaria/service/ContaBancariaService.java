@@ -1,10 +1,12 @@
 package com.exercicio.ContaBancaria.service;
 
 import com.exercicio.ContaBancaria.model.ContaBancariaModel;
+import com.exercicio.ContaBancaria.model.operacoes.OperacaoFactory;
 import com.exercicio.ContaBancaria.repository.ContaBancariaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +26,8 @@ public class ContaBancariaService {
     }
 
     public ContaBancariaModel cadastrar (ContaBancariaModel conta){
-        ContaBancariaFactory contaFactory = new ContaBancariaFactory();
-        BigDecimal resultado = contaFactory.calculoConta(conta.getTipoServico().calculoConta(conta));
+        OperacaoFactory contaFactory = new OperacaoFactory();
+        BigDecimal resultado = contaFactory.calculoOperacao(conta.getTipoServico()).calculoOperacao(conta);
 
         conta.getId();
         conta.getNumeroDeConta();
@@ -39,8 +41,8 @@ public class ContaBancariaService {
     }
 
     public ContaBancariaModel alterar(ContaBancariaModel conta){
-        ContaBancariaFactory contaFactory = new ContaBancariaFactory();
-        BigDecimal resultado = contaFactory.calculoConta(conta.getTipoServico().calculoConta(conta));
+        OperacaoFactory contaFactory = new OperacaoFactory();
+        BigDecimal resultado = contaFactory.calculoOperacao(conta.getTipoServico()).calculoOperacao(conta);
 
         conta.getId();
         conta.getNumeroDeConta();
