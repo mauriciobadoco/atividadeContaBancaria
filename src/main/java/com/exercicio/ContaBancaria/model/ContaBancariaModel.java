@@ -33,7 +33,7 @@ public class ContaBancariaModel {
     @Column (length = 50, nullable = false)
     private BigDecimal valorAtualDaConta;
 
-    @Column (length = 50, nullable = false)
+    @Column (length = 50)
     private BigDecimal valorFinal;
 
     @Column (length = 50, nullable = false)

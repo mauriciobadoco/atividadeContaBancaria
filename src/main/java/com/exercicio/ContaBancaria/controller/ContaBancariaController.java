@@ -3,6 +3,8 @@ package com.exercicio.ContaBancaria.controller;
 import com.exercicio.ContaBancaria.model.ContaBancariaModel;
 import com.exercicio.ContaBancaria.service.ContaBancariaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,23 +18,26 @@ public class ContaBancariaController {
     private ContaBancariaService service;
 
     @GetMapping (path = "/conta")
-    public List<ContaBancariaModel> buscarConta(){
-        return service.buscarContas();
+    public ResponseEntity<List<ContaBancariaModel>> buscarConta(){
+        List<ContaBancariaModel>listaContas = service.buscarContas();
+        return ResponseEntity.ok(listaContas);
     }
 
     @GetMapping (path = "/conta/{id}")
-    public Optional<ContaBancariaModel> buscarContaPorId(@PathVariable Long id){
-        return service.buscarContaPorId(id);
+    public ResponseEntity<Optional<ContaBancariaModel>> buscarContaPorId(@PathVariable Long id){
+
+        return ResponseEntity.ok(service.buscarContaPorId(id));
     }
 
     @PostMapping (path = "/conta")
-    public ContaBancariaModel cadastrar(@RequestBody ContaBancariaModel conta){
-        return service.cadastrar(conta);
+    public ResponseEntity<ContaBancariaModel> cadastrar(@RequestBody ContaBancariaModel conta){
+        ContaBancariaModel contaBancaria = service.cadastrar(conta);
+        return new ResponseEntity<>(contaBancaria, HttpStatus.CREATED);
     }
 
     @PutMapping (path = "/conta{id}")
-    public ContaBancariaModel alterar(@RequestBody ContaBancariaModel contaBancariaModel){
-        return  service.alterar(contaBancariaModel);
+    public ResponseEntity<ContaBancariaModel> alterar(@RequestBody ContaBancariaModel contaBancariaModel){
+        return  ResponseEntity.ok(contaBancariaModel);
     }
 
     @DeleteMapping (path = "/conta{id}")

@@ -8,7 +8,7 @@ public class OperacaoFactory {
 
         if(tipoServico.equalsIgnoreCase("SAQUE")){
             return new SaqueImpl();
-        }else if (tipoServico.equals("DEPOSITO")){
+        }else if (tipoServico.equalsIgnoreCase("DEPOSITO")){
             return new DepositoImpl();
         }
         return null;
