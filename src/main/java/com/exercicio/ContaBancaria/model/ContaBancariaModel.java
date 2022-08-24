@@ -9,12 +9,11 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name= "contabancaria")
+@Table(name = "contabancaria")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class ContaBancariaModel {
 
     @Id

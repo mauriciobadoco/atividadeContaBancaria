@@ -8,7 +8,7 @@ public class DepositoImpl implements CalculoOperacao{
 
     @Override
     public  BigDecimal calculoOperacao(ContaBancariaModel contaBancariaModel){
-        BigDecimal resultado = contaBancariaModel.getValorFinal().add(contaBancariaModel.getValorFornecido());
+        BigDecimal resultado = contaBancariaModel.getValorAtualDaConta().add(contaBancariaModel.getValorFornecido());
         return resultado;
     }
 
