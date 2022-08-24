@@ -29,13 +29,13 @@ public class ContaBancariaService {
         OperacaoFactory contaFactory = new OperacaoFactory();
         BigDecimal resultado = contaFactory.calculoOperacao(conta.getTipoServico()).calculoOperacao(conta);
 
-//        conta.getNumeroDeConta();
-//        conta.getValorAtualDaConta();
-//        conta.getNomeDoUsuario();
-//        conta.getAgencia();
+        conta.getNumeroDeConta();
+        conta.getValorAtualDaConta();
+        conta.getNomeDoUsuario();
+        conta.getAgencia();
         conta.setValorFinal(resultado);
-//        conta.getValorFornecido();
-//        conta.getTipoServico();
+        conta.getValorFornecido();
+        conta.getTipoServico();
         return repository.save(conta);
     }
 
